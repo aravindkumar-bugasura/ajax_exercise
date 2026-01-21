@@ -1,19 +1,13 @@
 <?php
 	session_start();
-
 	// ==========================
 	// Database connection
 	// ==========================
-	$con = new mysqli("localhost", "root", "Root@123", "facebook_db");
-	if ($con->connect_error) {
-		die("Connection failed: " . $con->connect_error);
-	}
-
+	include 'db_connection.php';
 	// ==========================
 	// Users
 	// ==========================
 	$main_user_id = $_SESSION['user_id']; // logged-in user
-
 	$profile_user_id = isset($_GET['user_id'])
 		? (int)$_GET['user_id']
 		: $main_user_id;
